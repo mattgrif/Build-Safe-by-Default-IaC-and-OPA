@@ -3,7 +3,7 @@ name: "Apply Terraform Plans"
 on:
   push:
     paths:
-      - demo/terraform/**
+      - demo/terraform/*
     branches:
       - main
 

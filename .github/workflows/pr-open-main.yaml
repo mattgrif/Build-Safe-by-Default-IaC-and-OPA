@@ -3,7 +3,7 @@ name: "Analyze & Plan Terraform"
 on:
   pull_request:
     paths:
-        - demo/terraform/**
+        - demo/terraform/*
     branches:
       - main
 
