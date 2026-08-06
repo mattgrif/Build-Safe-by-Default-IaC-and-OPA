@@ -34,11 +34,7 @@ jobs:
           DEBUG: ${{ runner.debug }}
           TF_LOG_PROVIDER: "${{ runner.debug == '1' && 'DEBUG' || 'ERROR' }}"
         run: |
-          terraform init -backend-config="storage_account_name=${STORAGE_ACCOUNT_NAME}" \
-                         -backend-config="container_name=${STORAGE_CONTAINER_NAME}" \
-                         -backend-config="key=terraform.tfstate" \
-                         -input=false \
-                         -lock=false
+          terraform init -input=false -lock=false
 
       - name: Generate Terraform Plans
         id: generate-tf-plans
