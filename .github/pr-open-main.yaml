@@ -20,8 +20,8 @@ jobs:
     env:
       ARM_TENANT_ID: "${{ vars.ARM_TENANT_ID }}"
       ARM_SUBSCRIPTION_ID: "${{ vars.AZURE_STORAGE_SUBSCRIPTION_ID}}"
-      ARM_CLIENT_ID: "${{ secrets.ARM_CLIENT_ID_PLAN }}"
-      ARM_CLIENT_SECRET: "${{ secrets.ARM_CLIENT_SECRET_PLAN }}"
+      ARM_CLIENT_ID: "${{ secrets.ARM_CLIENT_ID }}"
+      ARM_USE_OIDC: "true"
       ARM_USE_AZUREAD: true
       STORAGE_ACCOUNT_NAME: "${{ vars.AZURE_TF_STATE_STORAGE_ACCOUNT_NAME }}"
       STORAGE_CONTAINER_NAME: "${{ vars.AZURE_STORAGE_CONTAINER_NAME }}"
@@ -43,15 +43,11 @@ jobs:
 
       - name: Generate Terraform Plans
         id: generate-tf-plans
-        env:
-          DEBUG: ${{ runner.debug }}
-          TF_LOG_PROVIDER: "${{ runner.debug == '1' && 'DEBUG' || 'ERROR' }}"
         run: |
           terraform plan -refresh=false -out=plan.tfapply -input=false -detailed-exitcode
 
       - name: Upload Terraform plans
         uses: actions/upload-artifact@v7
-        if: steps.process-modified-files.outputs.modified-tf-env-paths != '[]'
         with:
           name: tfplan
           if-no-files-found: ignore
