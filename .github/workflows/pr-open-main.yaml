@@ -41,8 +41,7 @@ jobs:
       - name: Install Requirements
         id: install-requirements
         run: |
-          sudo eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          sudo brew install conftest
+          sudo /home/linuxbrew/.linuxbrew/bin/brew install conftest
 
       - name: Terraform fmt
         id: fmt
