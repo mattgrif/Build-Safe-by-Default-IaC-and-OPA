@@ -244,11 +244,8 @@ Enforce the policy gate by requiring the PR workflow checks to pass before any m
 1. Go to **Settings → Branches → Add branch ruleset** (or classic branch protection rule).
 2. Target the **`main`** branch.
 3. Enable **Require a pull request before merging**.
-4. Enable **Require status checks to pass** and add the following required checks:
-   - `OPA Policy Terraform Check`
-   - `Terraform fmt`
-   - `Terraform Validate`
-   - `Generate Terraform Plans`
+4. Enable **Require status checks to pass** and add the following required check (this is the job name, not individual steps):
+   - `Generate Plans`
 5. Enable **Do not allow bypassing the above settings** so admins cannot push directly.
 
 > **GitHub documentation**: [About protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
@@ -273,14 +270,3 @@ Enforce the policy gate by requiring the PR workflow checks to pass before any m
 1. Change `account_replication_type` to `"GRS"` in the storage account block.
 2. Push to the same branch and observe the workflow pass all checks.
 3. Merge the PR — the **"Apply Terraform Plans"** workflow runs `terraform apply` automatically.
-
----
-
-## Audit Notes
-
-The following issues were identified and fixed in this repository:
-
-| File | Issue | Fix applied |
-|---|---|---|
-| `demo/terraform/provider.tf` | Subscription ID was hardcoded (a security exposure in a public repo) | Removed; the `azurerm` provider reads `ARM_SUBSCRIPTION_ID` from the environment variable set by the workflow |
-| `.github/workflows/pr-open-main.yaml` | `conftest` was installed via `brew install` (latest) but invoked by a hardcoded version path (`/…/0.69.0/…`) that would break on updates | Removed path entirely — after `brew install conftest`, Homebrew symlinks the binary into its `bin/` directory which is on `PATH`, so `conftest` is called directly |
