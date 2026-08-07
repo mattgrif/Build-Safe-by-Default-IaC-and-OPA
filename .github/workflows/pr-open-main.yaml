@@ -40,8 +40,8 @@ jobs:
 
       - name: Install Requirements
         id: install-requirements
-          run: |
-            sudo brew install conftest
+        run: |
+          sudo brew install conftest
 
       - name: Terraform fmt
         id: fmt
