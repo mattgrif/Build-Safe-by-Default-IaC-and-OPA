@@ -41,7 +41,7 @@ jobs:
       - name: Install Requirements
         id: install-requirements
         run: |
-          sudo /home/linuxbrew/.linuxbrew/bin/brew install conftest
+          /home/linuxbrew/.linuxbrew/bin/brew install conftest
 
       - name: Terraform fmt
         id: fmt
