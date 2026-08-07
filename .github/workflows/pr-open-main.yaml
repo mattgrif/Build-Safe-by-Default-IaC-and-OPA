@@ -43,6 +43,11 @@ jobs:
         run: |
           /home/linuxbrew/.linuxbrew/bin/brew install conftest
 
+      - name: OPA Policy Terraform Check
+        id: opa-policy-tf-check
+        run: |
+          conftest test --output github --namespace hcl2 --parser hcl2 --ignore=".git/|.gitignore|.terraform/|\.json$" --combine --policy=../policies
+
       - name: Terraform fmt
         id: fmt
         run: terraform fmt -check
@@ -65,6 +70,12 @@ jobs:
         id: generate-tf-plans
         run: |
           terraform plan -refresh=false -out=plan.tfapply -input=false -detailed-exitcode -no-color
+        continue-on-error: true
+
+      - name: OPA Policy Terraform Plan Check
+        id: opa-policy-tf-plan-check
+        run: |
+          conftest test plan.tfapply --policy=../../policies/opa
         continue-on-error: true
 
       - uses: actions/github-script@v7

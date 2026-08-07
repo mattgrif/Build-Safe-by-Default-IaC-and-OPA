@@ -1,4 +1,4 @@
-package environment.hcl2
+package hcl2
 import rego.v1
 
 # Policy: enforce_storage_grs
