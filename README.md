@@ -124,6 +124,7 @@ Follow these steps to replicate the demo environment in your own Azure subscript
 ### Prerequisites
 
 - An **Azure subscription** where you have Owner or Contributor + User Access Administrator rights
+  > **Don't have a subscription?** Sign up for a free Azure trial at [azure.microsoft.com/free](https://azure.microsoft.com/free) — includes $200 credit for 30 days and a set of always-free services. You will need a Microsoft account and a credit card for identity verification (you are not charged until you explicitly upgrade).
 - A **GitHub account** with your own fork or copy of this repository
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) installed locally (for the setup steps below)
 
