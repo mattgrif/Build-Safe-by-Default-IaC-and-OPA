@@ -46,7 +46,8 @@ jobs:
       - name: OPA Policy Terraform Check
         id: opa-policy-tf-check
         run: |
-          /home/linuxbrew/.linuxbrew/Cellar/conftest/0.69.0/bin/conftest test --output github --namespace hcl2 --parser hcl2 --ignore=".git/|.gitignore|.terraform/|\.json$" --combine . --policy=../../policies/opa
+          pwd
+          /home/linuxbrew/.linuxbrew/Cellar/conftest/0.69.0/bin/conftest test --output github --namespace hcl2 --parser hcl2 --ignore=".git/|.gitignore|.terraform/|\.json$" --combine . --policy=../../policies
 
       - name: Terraform fmt
         id: fmt
