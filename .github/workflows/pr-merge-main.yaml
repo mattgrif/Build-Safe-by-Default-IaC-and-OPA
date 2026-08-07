@@ -36,6 +36,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v4.0.1
+        with:
+          terraform_version: 1.15.8
 
       - name: Apply Terraform plans
         id: apply-plans
@@ -45,5 +50,5 @@ jobs:
                          -backend-config="key=terraform.tfstate" \
                          -input=false \
                          -lock=false
-          terraform plan -out=plan.tfapply -input=false -detailed-exitcode
-          terraform apply -input=false -auto-approve plan.tfapply
+          terraform plan -input=false -detailed-exitcode -no-color
+          terraform apply -input=false -auto-approve
