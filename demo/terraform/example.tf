@@ -2,6 +2,9 @@
 resource "azurerm_resource_group" "rg-example" {
   name     = "rg-example"
   location = "East US"
+  tags = {
+    environment = "Demo"
+  }
 }
 
 # Create a storage account with default configuration
