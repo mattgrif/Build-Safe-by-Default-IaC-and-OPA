@@ -59,7 +59,7 @@ jobs:
       - name: Generate Terraform Plans
         id: generate-tf-plans
         run: |
-          terraform plan -refresh=false -out=plan.tfapply -input=false -detailed-exitcode
+          terraform plan -refresh=false -out=plan.tfapply -input=false -detailed-exitcode -no-color
         continue-on-error: true
 
       - uses: actions/github-script@v7
