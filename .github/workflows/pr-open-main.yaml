@@ -37,6 +37,8 @@ jobs:
         with:
           terraform_version: 1.15.8
 
+      - name: Install azd
+        uses: Azure/setup-azd@v2
 
       - name: Terraform fmt
         id: fmt
