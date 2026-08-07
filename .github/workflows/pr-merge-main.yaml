@@ -20,6 +20,10 @@ jobs:
   apply-plans:
     name: Apply Terraform plans
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ github.workspace }}/terraform
     environment: "main"
     env:
       ARM_TENANT_ID: "${{ vars.ARM_TENANT_ID }}"
