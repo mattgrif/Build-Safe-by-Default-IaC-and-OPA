@@ -46,8 +46,7 @@ jobs:
       - name: OPA Policy Terraform Check
         id: opa-policy-tf-check
         run: |
-          ls -la /home/linuxbrew/.linuxbrew/Cellar/conftest/
-          ls -la /etc/conftest
+          ls -la /home/linuxbrew/.linuxbrew/Cellar/conftest/0.69.0
           /home/linuxbrew/.linuxbrew/bin/conftest version
           /home/linuxbrew/.linuxbrew/etc/conftest -test --output github --namespace hcl2 --parser hcl2 --ignore=".git/|.gitignore|.terraform/|\.json$" --combine --policy=../policies
 
