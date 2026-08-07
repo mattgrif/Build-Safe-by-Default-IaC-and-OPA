@@ -38,16 +38,6 @@ jobs:
         with:
           terraform_version: 1.15.8
 
-      - name: Install azd
-        uses: Azure/setup-azd@v2
-
-      - name: Azure login
-        uses: azure/login@v3
-        with:
-          client-id: ${{ secrets.ARM_CLIENT_ID }}
-          tenant-id: ${{ vars.ARM_TENANT_ID }}
-          subscription-id: ${{ vars.AZURE_STORAGE_SUBSCRIPTION_ID }}
-
       - name: Terraform fmt
         id: fmt
         run: terraform fmt -check
