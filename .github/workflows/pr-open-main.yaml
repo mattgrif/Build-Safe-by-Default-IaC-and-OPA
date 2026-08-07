@@ -48,8 +48,8 @@ jobs:
           terraform init -input=false -lock=false
 
       - name: Terraform Validate
-      id: validate
-      run: terraform validate -no-color
+        id: validate
+        run: terraform validate -no-color
 
       - name: Generate Terraform Plans
         id: generate-tf-plans
