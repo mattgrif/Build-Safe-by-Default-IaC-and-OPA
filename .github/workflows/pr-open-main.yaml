@@ -41,7 +41,7 @@ jobs:
       - name: Install Requirements
         id: install-requirements
         run: |
-          /home/linuxbrew/.linuxbrew/bin/brew install conftest@0.69.0
+          /home/linuxbrew/.linuxbrew/bin/brew install conftest
 
       - name: OPA Policy Terraform Check
         id: opa-policy-tf-check
