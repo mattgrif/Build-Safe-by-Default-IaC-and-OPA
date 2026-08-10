@@ -30,8 +30,8 @@
 # }
 
 # # Create a storage account for OPA Demo that fails using LRS
-# resource "azurerm_storage_account" "stexampleopa-demo" {
-#   name                     = "stexampleopa-demo"
+# resource "azurerm_storage_account" "stexampleopademo" {
+#   name                     = "stexampleopademo"
 #   resource_group_name      = azurerm_resource_group.rg-exampleopa-demo.name
 #   location                 = azurerm_resource_group.rg-exampleopa-demo.location
 #   account_tier             = "Standard"
