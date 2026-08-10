@@ -44,10 +44,10 @@ jobs:
           /home/linuxbrew/.linuxbrew/bin/brew install conftest
           echo "/home/linuxbrew/.linuxbrew/bin" >> "$GITHUB_PATH"
 
-      # - name: OPA Policy Terraform Check
-      #   id: opa-policy-tf-check
-      #   run: |
-      #     conftest test --output github --namespace hcl2 --parser hcl2 --ignore=".git/|.gitignore|.terraform/|\.json$" --combine . --policy=../policy
+      - name: OPA Policy Terraform Check
+        id: opa-policy-tf-check
+        run: |
+          conftest test --output github --namespace hcl2 --parser hcl2 --ignore=".git/|.gitignore|.terraform/|\.json$" --combine . --policy=../policy
 
       - name: Terraform fmt
         id: fmt
