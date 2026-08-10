@@ -35,7 +35,7 @@ resource "azurerm_storage_account" "stexampleopademo" {
   resource_group_name      = azurerm_resource_group.rg-exampleopa-demo.name
   location                 = azurerm_resource_group.rg-exampleopa-demo.location
   account_tier             = "Standard"
-  account_replication_type = "LRS" # During demo change this from LRS to GRS to see the policy in action
+  account_replication_type = "GRS" # During demo change this from LRS to GRS to see the policy in action
 
   tags = {
     environment = "Demo"
